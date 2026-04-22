@@ -1,87 +1,35 @@
-Automated Pin Configuration Verification Tool
-This project provides a set of Python scripts designed to automate pin configuration verification for RH850 F1K MCUs using WinIDEA and the isystem.connect API.
-The scripts support processing input data from spreadsheet files (CSV by default) and validating MCU Special Function Registers (SFRs) against expected configurations derived from the hardware manual.
+# RH850 F1K MCUs Documentation
 
-Overview
-The workflow is designed to operate on an input file (CSV by default), extract the relevant pin configuration data, connect to an active WinIDEA debug session, and verify that each pin is correctly configured at the register level.
-Although this project currently uses .csv files, libraries for handling .xls and .xlsx files can be installed and used if needed.
+## Overview
+The RH850 F1K MCUs are designed for automotive applications with high-performance requirements.
 
-Scripts Description
-1️⃣ PinExtractFromCsvFile.py
+### Key Features
+- High-speed operation
+- Low power consumption
+- Advanced safety features
 
-Extracts only the required information from the provided input file.
-Filters and restructures the data to generate a simplified Results.csv file used by the verification script.
-This script is the first step in the workflow.
+## WinIDEA Integration
+WinIDEA provides a powerful environment for developing and debugging applications for the RH850 F1K MCUs. It supports:
+- Real-time debugging
+- Code profiling
+- Performance analysis
 
+## Scripts
+### Automation Scripts
+Scripts can be used to automate various tasks:
+- Building projects
+- Running tests
+- Collecting logs
 
-2️⃣ ReadFromWinIDEA.py
+### Script Examples
+1. **Build Script**: Automate the building of your project.
+2. **Test Script**: Run specific tests to verify your code.
 
-Connects to an active WinIDEA session using the isystem.connect API.
-Reads SFR values directly from the MCU.
-Provides low‑level access used by the pin verification tool to read hardware registers.
+## Verification Process
+To ensure the proper functioning of the RH850 F1K MCUs, follow these steps:
+1. **Initialization**: Set up your environment and tools.
+2. **Execution**: Run your scripts to verify functionality.
+3. **Documentation**: Record your findings and any issues encountered.
 
-
-3️⃣ PinCheck.py
-Automated pin configuration verification tool for RH850 F1K MCUs.
-Functionality:
-
-Reads a pin list from Results.csv containing:
-
-Pin name
-Pin number
-Pin function
-Expected Alternative Function (AF) mode
-
-
-Connects to a live, halted MCU session in WinIDEA.
-Reads the following 7 SFRs per pin:
-
-P
-PM
-PFC
-PFCE
-PFCAE
-PFCEAE
-PMC
-
-
-For pins configured in alternative function mode (PMC = 1):
-
-Validates the actual register values
-Compares them against the expected bit patterns defined in Table 2.20 of the RH850 F1K Hardware Manual (AF1–AF16, Input/Output)
-
-
-Produces a PASS / FAIL result for each pin.
-
-Output:
-
-Verification results are written to:
-
-SFR_Comparison_Results.csv
-
-
-
-
-Workflow Summary
-
-Provide a pin configuration file (.csv)
-Run PinExtractFromCsvFile.py to extract and prepare input data
-Ensure WinIDEA is open and connected to the target MCU
-Run PinCheck.py to validate pin configurations
-Review results in SFR_Comparison_Results.csv
-
-
-Requirements
-
-WinIDEA installed and running
-Active and halted MCU debug session
-Python 3
-isystem.connect Python API available
-RH850 F1K Hardware Manual (for reference)
-
-
-Notes
-
-The scripts interact directly with live hardware registers, so ensure the target state is stable.
-Additional spreadsheet formats (.xls, .xlsx) can be supported by installing the appropriate Python libraries.
-Intended for verification and validation use, not for modifying register values.
+## Conclusion
+For further assistance and detailed information, refer to the settings and configurations within the WinIDEA documentation.
