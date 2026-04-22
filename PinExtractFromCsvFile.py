@@ -2,10 +2,10 @@ import csv
 
 #We'll use this script to extract the pin names and their functions from the CSV file exported from the Excel sheet, so that we can compare them with the pin configuration in the code.
 
-# Export the sheet "HW_SW_RH850F1K_144pins_U2C2" from
-# "HF-01234_HW-SW Interface_TTM_Gen_4.xls" as a CSV file first,
+# Export the sheet "HSI" from
+# "HSI.xls" as a CSV file first,
 # then set INPUT_CSV to that file's name.
-INPUT_CSV   = "HF-01234_HW-SW Interface_TTM_Gen_4.csv"
+INPUT_CSV   = "HSI.csv"   #here to use the Hw_Sw_Intf path for the .csv file
 START_ROW   = 9          # 1-based; data begins on this row
 COL_B       = 1          # column A  (0-based)
 COL_AS      = 44         # column AS (0-based, A=0 … AS=44)
